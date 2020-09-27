@@ -1,0 +1,54 @@
+{
+  "name": "harmonybot",
+  "version": "1.0.0",
+  "description": "A general purpose Discord bot specifically for managing the CodeSpent.dev Discord server.",
+  "main": "index.js",
+  "scripts": {
+    "commit": "cz",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CodeSpent/harmonybot.git"
+  },
+  "keywords": [
+    "discord",
+    "discord.js",
+    "codespent.dev",
+    "codespent",
+    "bot"
+  ],
+  "author": "CodeSpent",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CodeSpent/harmonybot/issues"
+  },
+  "homepage": "https://github.com/CodeSpent/harmonybot#readme",
+  "dependencies": {
+    "discord.js": "^12.3.1",
+    "dotenv": "^8.2.0"
+  },
+  "devDependencies": {
+    "cz-conventional-changelog": "^3.3.0",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.4.0",
+    "nodemon": "^2.0.4",
+    "prettier": "^2.1.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
+    }
+  },
+  "lint-staged": {
+    "*.{js,css,md}": "prettier --write"
+  }
+}
